@@ -6,7 +6,7 @@ using MultShop.Catalog.Services.ProductServices;
 
 namespace MultShop.Catalog.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
