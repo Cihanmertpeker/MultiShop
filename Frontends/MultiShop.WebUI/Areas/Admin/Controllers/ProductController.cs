@@ -37,6 +37,14 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
 
             return View();
         }
+        void ProductViewBagList()
+        {
+            ViewBag.v1 = "Ana Sayfa";
+            ViewBag.v2 = "Ürünler";
+            ViewBag.v3 = "Ürün Listesi";
+            ViewBag.v0 = "Ürün İşlemleri";
+        }
+
 
         [HttpGet]
         [Route("CreateProduct")]

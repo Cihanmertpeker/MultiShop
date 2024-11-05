@@ -3,6 +3,7 @@ using Microsoft.Extensions.Options;
 using MultiShop.Catalog.Services.ProductDetailDetailServices;
 using MultiShop.Catalog.Services.ProductImageServices;
 using MultShop.Catalog.Services.CategoryServices;
+using MultShop.Catalog.Services.FeatureSliderServices;
 using MultShop.Catalog.Services.ProductDetailServices;
 using MultShop.Catalog.Services.ProductImageServices;
 using MultShop.Catalog.Services.ProductServices;
@@ -22,6 +23,8 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductDetailService, ProductDetailService>();
 builder.Services.AddScoped<IProductImageService, ProductImageService>();
+builder.Services.AddScoped<IFeatureSliderService, FeatureSliderService>();
+
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
