@@ -23,7 +23,6 @@ namespace MultShop.Catalog.Controllers
             var values = await _FeatureSliderService.GetAllFeatureSliderAsync();
             return Ok(values);
         }
-
         [HttpGet("{id}")]
         public async Task<IActionResult> GetFeatureSliderById(string id)
         {
@@ -35,21 +34,21 @@ namespace MultShop.Catalog.Controllers
         public async Task<IActionResult> CreateFeatureSlider(CreateFeatureSliderDto createFeatureSliderDto)
         {
             await _FeatureSliderService.CreateFeatureSliderAsync(createFeatureSliderDto);
-            return Ok("Öne çıkan görsel başarıyla eklendi");
+            return Ok("Öne Çıkan Görsel başarıyla eklendi");
         }
 
         [HttpDelete]
         public async Task<IActionResult> DeleteFeatureSlider(string id)
         {
             await _FeatureSliderService.DeleteFeatureSliderAsync(id);
-            return Ok("Öne çıkan görsel başarıyla silindi");
+            return Ok("Öne Çıkan Görsel başarıyla silindi");
         }
 
         [HttpPut]
         public async Task<IActionResult> UpdateFeatureSlider(UpdateFeatureSliderDto updateFeatureSliderDto)
         {
             await _FeatureSliderService.UpdateFeatureSliderAsync(updateFeatureSliderDto);
-            return Ok("Öne çıkan görsel başarıyla güncellendi");
+            return Ok("Öne Çıkan Görsel başarıyla güncellendi");
         }
     }
 }
