@@ -1,25 +1,29 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-//using MultiShop.DtoLayer.CatalogDtos.ProductDtos;
-//using MultiShop.DtoLayer.CatalogDtos.ProductImageDtos;
-//using MultiShop.WebUI.Services.CatalogServices.ProductImageServices;
+using MultiShop.DtoLayer.CatalogDtos.ProductImageDtos;
 using Newtonsoft.Json;
 
 namespace MultiShop.WebUI.ViewComponents.ProductDetailViewComponents
 {
     public class _ProductDetailImageSliderComponentPartial : ViewComponent
     {
-        //private readonly IProductImageService _productImageService;
-        //public _ProductDetailImageSliderComponentPartial(IProductImageService productImageService)
-        //{
-        //    _productImageService = productImageService;
-        //}
-        //public async Task<IViewComponentResult> InvokeAsync(string id)
-        //{
-        //    var values = await _productImageService.GetByProductIdProductImageAsync(id);
-        //    return View(values);
-        //}
-        public IViewComponentResult Invoke()
+
+        private readonly IHttpClientFactory _httpClientFactory;
+
+        public _ProductDetailImageSliderComponentPartial(IHttpClientFactory httpClientFactory)
         {
+            _httpClientFactory = httpClientFactory;
+
+        }
+        public async Task<IViewComponentResult> InvokeAsync(string id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var resonseMessage = await client.GetAsync("https://localhost:7070/api/ProductImages/ProductImagesByProductId" + id);
+            if (resonseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await resonseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<GetByIdProductImageDto>(jsonData);
+                return View(values);
+            }
             return View();
         }
     }
