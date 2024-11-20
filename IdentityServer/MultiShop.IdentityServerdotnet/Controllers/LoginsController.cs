@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace MultiShop.IdentityServerdotnet.Controllers
 {
-    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class LoginsController : ControllerBase
